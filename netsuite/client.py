@@ -519,7 +519,7 @@ class NetSuite:
     @WebServiceCall(
         'body.writeResponseList',
         extract=lambda resp:
-            [record['baseRef'] if record['status']['isSuccess'] else record['status']['statusDetail'] for record in resp],
+            [record['baseRef'] if record['status']['isSuccess'] else record['status']['statusDetail'] for record in resp['writeResponse']],
     )
     def upsertList(
         self,
